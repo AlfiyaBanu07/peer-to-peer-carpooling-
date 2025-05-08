@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passenger Registration</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        header .logo img {
+            width: 120px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+        }
+
+        header nav a:hover {
+            color: #ff8c00;
+        }
+
+        /* Passenger Registration Section */
+        section.form-container {
+            padding: 40px;
+            background-color: white;
+            max-width: 600px;
+            margin: 50px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #ff8c00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e07b00;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #333;
+            color: white;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Error Message */
+        .error {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Carpool Logo" id="logo">
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="login_passenger.html">Login</a>
+        </nav>
+    </header>
+
+    <!-- Passenger Registration Form Section -->
+    <section class="form-container">
+        <h2>Passenger Registration</h2>
+        <form id="passengerForm" action="#" method="POST">
+            <!-- Passenger Name -->
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <!-- Passenger Email -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <!-- Passenger Phone -->
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <!-- Passenger Password -->
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter a password" required>
+
+            <!-- Confirm Password -->
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Register</button>
+
+            <!-- Error Message Display -->
+            <p id="error-message" class="error"></p>
+        </form>
+
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Peer-to-Peer Carpooling. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Form Validation -->
+    <script>
+        document.getElementById('passengerForm').addEventListener('submit', function(event) {
+            // Prevent the form from submitting to check validation
+            event.preventDefault();
+
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Validate if passwords match
+            if (password !== confirmPassword) {
+                errorMessage.textContent = 'Passwords do not match. Please try again.';
+                return;
+            }
+
+            // Check if all fields are filled
+            if (!name || !email || !phone || !password || !confirmPassword) {
+                errorMessage.textContent = 'Please fill in all fields.';
+                return;
+            }
+
+            // If validation passes, display success message and simulate form submission
+            alert('Registration successful!');
+            console.log({
+                name,
+                email,
+                phone,
+                password,
+            });
+
+            // Optionally, reset the form
+            document.getElementById('passengerForm').reset();
+            errorMessage.textContent = ''; // Clear error message
+        });
+    </script>
+</body>
+</html>

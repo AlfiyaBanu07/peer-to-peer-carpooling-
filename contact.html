@@ -1,0 +1,50 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Peer-to-Peer Carpooling</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; display: flex; min-height: 100vh; background: #f4f7f9; }
+    .sidebar { width: 220px; background: #363b42; color: white; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
+    .sidebar img { width: 80px; height: 80px; margin-bottom: 20px; border-radius: 50%; background: white; padding: 5px; }
+    .sidebar nav a { color: white; text-decoration: none; margin: 10px 0; display: block; font-size: 16px; transition: 0.3s; padding: 5px 10px; border-radius: 8px; }
+    .sidebar nav a:hover { background: #0849b9; padding-left: 20px; }
+    .main { flex: 1; padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    header h1 { font-size: 2.5rem; color: #0d6efd; margin-bottom: 20px; text-align: center; }
+    .contact-box { background: white; padding: 30px; border-radius: 12px; width: 100%; max-width: 600px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+    .contact-box p { font-size: 1rem; color: #333; margin-bottom: 20px; text-align: center; }
+    .contact-box input, .contact-box textarea { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 8px; }
+    .contact-box button { padding: 10px 20px; background: #0d6efd; color: white; border: none; border-radius: 8px; cursor: pointer; transition: background 0.3s; }
+    .contact-box button:hover { background: #0849b9; }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <img src="https://via.placeholder.com/80" alt="Logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="register.html">Register</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </div>
+
+  <div class="main">
+    <header>
+      <h1>Contact Us</h1>
+    </header>
+    <div class="contact-box">
+      <p>Have questions or feedback? Reach out to us using the form below or email us directly at <strong>support@carpoolapp.com</strong></p>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

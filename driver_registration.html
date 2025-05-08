@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Registration</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        header .logo img {
+            width: 120px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+        }
+
+        header nav a:hover {
+            color: #ff8c00;
+        }
+
+        /* Driver Registration Section */
+        section {
+            padding: 40px;
+            background-color: white;
+            max-width: 600px;
+            margin: 50px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #ff8c00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e07b00;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #333;
+            color: white;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Carpool Logo" id="logo">
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="login_driver.html">Login</a>
+        </nav>
+    </header>
+
+    <!-- Driver Registration Form Section -->
+    <section>
+        <h2>Driver Registration</h2>
+        <form id="driverForm" action="#" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="car">Car Model:</label>
+            <input type="text" id="car" name="car" required>
+
+            <label for="plate">Car Plate Number:</label>
+            <input type="text" id="plate" name="plate" required>
+
+            <button type="submit">Register</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Peer-to-Peer Carpooling. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for form validation -->
+    <script>
+        document.getElementById('driverForm').addEventListener('submit', function(event) {
+            // Prevent form submission to check validation first
+            event.preventDefault();
+
+            // Get all the form elements
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const car = document.getElementById('car').value;
+            const plate = document.getElementById('plate').value;
+
+            // Check if all fields are filled out
+            if (!name ||  !phone || !car || !plate) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // If all fields are filled, submit the form
+            alert('Registration successful!');
+            // You can now send the form data to your server here if needed, e.g., using fetch or XMLHttpRequest
+            // For now, we're just logging the data
+            console.log({
+                name,
+                email,
+                phone,
+                car,
+                plate
+            });
+
+            // Simulate form submission (reset form or send data to a server)
+            // For now, we're just clearing the form fields
+            document.getElementById('driverForm').reset();
+        });
+        window.location.href = "login_passenger.html";
+
+    </script>
+
+</body>
+</html>
